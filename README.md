@@ -8,10 +8,12 @@
         - サーバーサイド暗号化のため、S3側でデータの絞り込みが効き、中身の参照にCMK:Customer Master Keyへのアクセス権が必要となるため、SSE-KMSがおすすめ
         - AWS Key Management Serviceの詳細は[こちら](https://aws.amazon.com/jp/kms/)
       - Client Side Encription: CSE
+  - Amazon Macie などの高度なマネージドセキュリティサービスを使用します。これにより、Amazon S3 に保存される個人データの検出と保護が支援されます
 - 通信の保護
   - 閉域に閉じた環境
     - VPCから閉域網に閉じたあk達でサービスのエンドポイントにアクセス
   - 通信のデータ暗号化
+    - SSL(Source Socket Layer)やTSL(Transport Layer Security)を使うことで盗聴や改ざんを防ぐことをおすすめ
 - 権限管理
   - データに対して最小の見解を与える
   - データレイクアカウント、開発環境アカウント、本番環境アカウントなど、用途や組織に応じてクロスアカウントでの環境分離を行う
@@ -21,6 +23,10 @@
 - ガバナンス
   - CloudWatch Logsによるログの出力及び集約
   - CloudTrailによるAPI実行歴の蓄積
+  
+- その他
+  - PCI DSS(Payment Card Industry Data Security Standard)対応済
+  - HIPAA(Health Insurance Portability and Accountability Act)対応済
 
 ## セキュアなjupyter notebooks 開発環境
 - ノートブックインスタンス作成APIを、ダイレクトコネクトとVPCエンドポイント経由で閉域に閉じる
