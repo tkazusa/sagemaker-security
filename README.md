@@ -12,7 +12,8 @@
   - AWS Key Management Service キーを Amazon SageMaker ノートブック、トレーニングジョブ、ハイパーパラメータ調整ジョブ、バッチ変換ジョブ、エンドポイントに渡すことで、アタッチされた機械学習 (ML) ストレージボリュームを暗号化することができます。
 - 通信の保護
   - 閉域に閉じた環境
-    - VPCから閉域網に閉じたあk達でサービスのエンドポイントにアクセス
+    - VPCから閉域網に閉じた形でサービスのエンドポイントにアクセス
+    - [AWS PrivateLink](https://aws.amazon.com/jp/privatelink/)を使用可能なVPCエンドポイントをサポートしている[サービス一覧](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-endpoints.html)にSageMakerのノートブックインスタンスとランタイムが入っている。
   - 通信のデータ暗号化
     - SSL(Source Socket Layer)やTSL(Transport Layer Security)を使うことで盗聴や改ざんを防ぐことをおすすめ
     - 転送中のネットワーク間データはすべて、TLS 1.2 暗号化をサポートしています
