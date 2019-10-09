@@ -1,6 +1,8 @@
 # Amazon SageMakerでのセキュリティ
 ## データの保護 
-#### 保存のデータ暗号化
+#### [保存のデータ暗号化](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/encryption-at-rest.html)
+- AWS Key Management Service キーを Amazon SageMaker ノートブック、トレーニングジョブ、ハイパーパラメータ調整ジョブ、バッチ変換ジョブ、エンドポイントに渡すことで、アタッチされた機械学習 (ML) ストレージボリュームを暗号化することができる
+- SageMakerのそれぞれのストレージボリュームからS3にデータを移す場合には、必要に応じてAWS KMS暗号化を使用する
 - S3データの暗号化
   - Server Side Encryption: SSE
     - SSE-S3、SSE-KMS、SSE-Cの中から選ぶ
@@ -8,7 +10,7 @@
     - AWS Key Management Serviceの詳細は[こちら](https://aws.amazon.com/jp/kms/)
   - Client Side Encription: CSE
     - Amazon Macie などの高度なマネージドセキュリティサービスを使用します。これにより、Amazon S3 に保存される個人データの検出と保護が支援されます
-    - AWS Key Management Service キーを Amazon SageMaker ノートブック、トレーニングジョブ、ハイパーパラメータ調整ジョブ、バッチ変換ジョブ、エンドポイントに渡すことで、アタッチされた機械学習 (ML) ストレージボリュームを暗号化することができます。
+
 #### 通信の保護
 - 閉域に閉じた環境
   - VPCから閉域網に閉じた形でサービスのエンドポイントにアクセス
