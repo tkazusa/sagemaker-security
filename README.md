@@ -2,9 +2,11 @@
 ## データの保護 
 #### [SageMakerのインスタンス上での保存のデータ暗号化](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/encryption-at-rest.html)
 - AWS Key Management Service キーを Amazon SageMaker ノートブック、トレーニングジョブ、ハイパーパラメータ調整ジョブ、バッチ変換ジョブ、エンドポイントに渡すことで、アタッチされた機械学習 (ML) ストレージボリュームを暗号化することができる
-- SageMakerのそれぞれのストレージボリュームからS3にデータを移す場合には、必要に応じてAWS KMS暗号化を使用する
+- SageMaker Python SDK を使用する場合には、`Estimator`  に `train_volume_kms_key` で `output_kms_key` でアタッチするEBSボリュームを暗号化することができる
+
 
 #### S3データの暗号化
+- SageMakerのそれぞれのストレージボリュームからS3にデータを移す場合には、必要に応じてAWS KMS暗号化を使用する
 - Server Side Encryption: SSE
   - SSE-S3、SSE-KMS、SSE-Cの中から選ぶ
   - サーバーサイド暗号化のため、S3側でデータの絞り込みが効き、中身の参照にCMK:Customer Master Keyへのアクセス権が必要となるため、SSE-KMSがおすすめ
