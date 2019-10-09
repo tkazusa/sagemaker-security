@@ -1,5 +1,5 @@
 # Amazon SageMakerでのセキュリティ
-## データの保護 
+## 保存されているデータの保護 
 #### [SageMakerのインスタンス上での保存のデータ暗号化](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/encryption-at-rest.html)
 - AWS Key Management Service キーを Amazon SageMaker ノートブック、トレーニングジョブ、ハイパーパラメータ調整ジョブ、バッチ変換ジョブ、エンドポイントに渡すことで、アタッチされた機械学習 (ML) ストレージボリュームを暗号化することができる
 - SageMaker Python SDK を使用する場合には、`Estimator`  に `train_volume_kms_key` で `output_kms_key` でアタッチするEBSボリュームを暗号化することができる
@@ -17,16 +17,19 @@
 - Client Side Encription: CSE
   - Amazon Macie などの高度なマネージドセキュリティサービスを使用します。これにより、Amazon S3 に保存される個人データの検出と保護が支援されます
 
-#### 通信の保護
-- 閉域に閉じた環境
-  - VPCから閉域網に閉じた形でサービスのエンドポイントにアクセス
+## 通信されているデータの保護
+#### 閉域に閉じた環境
+- VPCから閉域網に閉じた形でサービスのエンドポイントにアクセス
   - [AWS PrivateLink](https://aws.amazon.com/jp/privatelink/)を使用可能なVPCエンドポイントをサポートしている[サービス一覧](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-endpoints.html)にSageMakerのノートブックインスタンスとランタイムが入っている。
-- 通信のデータ暗号化
-  - SSL(Source Socket Layer)やTSL(Transport Layer Security)を使うことで盗聴や改ざんを防ぐことをおすすめ
-  - 転送中のネットワーク間データはすべて、TLS 1.2 暗号化をサポートしています
-  - 一部暗号化されない通信もある
-    - サービスコントロールプレーンとトレーニングジョブインスタンス (顧客データではない) の間のコマンドとコントロールの通信
-    - 分散トレーニングジョブ (ネットワーク内) のノード間の通信
+
+#### [転送中のデータの暗号化](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/encryption-in-transit.html)
+- また、SageMaker の API とコンソールへ送られるリクエストにはSSL接続が使用される
+- 転送中のネットワーク間のデータはすべて SSL/TSL による暗号化がされます
+- 一部暗号化されない通信もある
+  - サービスコントロールプレーンとトレーニングジョブインスタンス (顧客データではない) の間のコマンドとコントロールの通信
+  - 分散トレーニングジョブ (ネットワーク内) のノード間の通信
+- FIPS (連邦情報処理規格)検証済みのエンドポイントも用意されている
+
 ## 権限管理
 - データに対して最小の見解を与える
 - データレイクアカウント、開発環境アカウント、本番環境アカウントなど、用途や組織に応じてクロスアカウントでの環境分離を行う
