@@ -18,7 +18,7 @@
   - Amazon Macie などの高度なマネージドセキュリティサービスを使用します。これにより、Amazon S3 に保存される個人データの検出と保護が支援されます
 
 ## 通信されているデータの保護
-#### 閉域に閉じた環境
+#### [閉域に閉じたセキュアな環境の整備](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/infrastructure-security.html)
 - VPCから閉域網に閉じた形でサービスのエンドポイントにアクセス
   - [AWS PrivateLink](https://aws.amazon.com/jp/privatelink/)を使用可能なVPCエンドポイントをサポートしている[サービス一覧](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-endpoints.html)にSageMakerのノートブックインスタンスとランタイムが入っている。
 - [AWS PrivateLink を使用した Amazon SageMaker で、セキュアな予測呼び出し](https://aws.amazon.com/jp/blogs/news/secure-prediction-calls-in-amazon-sagemaker-with-aws-privatelink/)
