@@ -3,14 +3,16 @@
 #### [SageMakerのインスタンス上での保存のデータ暗号化](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/encryption-at-rest.html)
 - AWS Key Management Service キーを Amazon SageMaker ノートブック、トレーニングジョブ、ハイパーパラメータ調整ジョブ、バッチ変換ジョブ、エンドポイントに渡すことで、アタッチされた機械学習 (ML) ストレージボリュームを暗号化することができる
 - SageMaker Python SDK を使用する場合には、`Estimator`  に `train_volume_kms_key` で `output_kms_key` でアタッチするEBSボリュームを暗号化することができる
+- AWS Key Management Serviceの詳細は[こちら](https://aws.amazon.com/jp/kms/)
 
 
-#### S3データの暗号化
+#### [S3データの暗号化](https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/user-guide/default-bucket-encryption.html)
 - SageMakerのそれぞれのストレージボリュームからS3にデータを移す場合には、必要に応じてAWS KMS暗号化を使用する
+- AWS Key Management Serviceの詳細は[こちら](https://aws.amazon.com/jp/kms/)
 - Server Side Encryption: SSE
   - SSE-S3、SSE-KMS、SSE-Cの中から選ぶ
   - サーバーサイド暗号化のため、S3側でデータの絞り込みが効き、中身の参照にCMK:Customer Master Keyへのアクセス権が必要となるため、SSE-KMSがおすすめ
-  - AWS Key Management Serviceの詳細は[こちら](https://aws.amazon.com/jp/kms/)
+
 - Client Side Encription: CSE
   - Amazon Macie などの高度なマネージドセキュリティサービスを使用します。これにより、Amazon S3 に保存される個人データの検出と保護が支援されます
 
@@ -31,8 +33,15 @@
   - パーソナルデータ：匿名化する
   - 売上・取引先データ：取引先名ではなくてIDのみ使用
 ## ガバナンス
+#### SageMaker インスタンスへのアクセス
 - CloudWatch Logsによるログの出力及び集約
 - CloudTrailによるAPI実行歴の蓄積
+
+#### S3へのアクセス
+- サーバーアクセスのログ記録
+
+#### オブジェクトレベルのログ記録
+
   
 ## その他
   - PCI DSS(Payment Card Industry Data Security Standard)対応済
