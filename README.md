@@ -19,8 +19,10 @@
 
 ## 通信されているデータの保護
 #### [閉域に閉じたセキュアな環境の整備](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/infrastructure-security.html)
-- VPCから閉域網に閉じた形でサービスのエンドポイントにアクセス
-  - [AWS PrivateLink](https://aws.amazon.com/jp/privatelink/)を使用可能なVPCエンドポイントをサポートしている[サービス一覧](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-endpoints.html)にSageMakerのノートブックインスタンスとランタイムが入っている。
+- インターフェイス VPC エンドポイント(AWS PrivateLink)で SageMaker API やランタイムと直接
+- [AWS PrivateLink](https://aws.amazon.com/jp/privatelink/)を使用可能なVPCエンドポイントをサポートしている[サービス一覧](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-endpoints.html)にSageMakerのノートブックインスタンスとランタイムが入っている
+- 
+
 - [AWS PrivateLink を使用した Amazon SageMaker で、セキュアな予測呼び出し](https://aws.amazon.com/jp/blogs/news/secure-prediction-calls-in-amazon-sagemaker-with-aws-privatelink/)
 - [AWS PrivateLink エンドポイントを使用することで、Amazon VPC から Amazon SageMaker ノートブックに直接アクセスする](https://aws.amazon.com/jp/blogs/news/direct-access-to-amazon-sagemaker-notebooks-from-amazon-vpc-by-using-an-aws-privatelink-endpoint/)
 - [AWS PrivateLink を使用してすべての Amazon SageMaker API コールを保護する](https://aws.amazon.com/jp/blogs/news/securing-all-amazon-sagemaker-api-calls-with-aws-privatelink/)
