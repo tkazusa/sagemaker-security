@@ -3,6 +3,7 @@
 #### [SageMakerのインスタンス上での保存のデータ暗号化](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/encryption-at-rest.html)
 - AWS Key Management Service キーを Amazon SageMaker ノートブック、トレーニングジョブ、ハイパーパラメータ調整ジョブ、バッチ変換ジョブ、エンドポイントに渡すことで、アタッチされた機械学習 (ML) ストレージボリュームを暗号化することができる
 - SageMaker Python SDK を使用する場合には、`Estimator`  に `train_volume_kms_key` で `output_kms_key` でアタッチするEBSボリュームを暗号化することができる
+- キーユーザーに適切にIAMユーザーとロールを設定することで、キーを使用してデータを暗号化および復元できるユーザーを制限できる
 - AWS Key Management Serviceの詳細は[こちら](https://aws.amazon.com/jp/kms/)
 
 
