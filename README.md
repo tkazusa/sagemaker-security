@@ -19,6 +19,7 @@
 
 ## 通信されているデータの保護
 #### [閉域に閉じたセキュアな環境の整備](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/infrastructure-security.html)
+- VPC エンドポイントとは グローバルIP を持つAWSサービスにVPC内から直接アクセスするための出口
 - インターフェイス VPC エンドポイント(AWS PrivateLink)で SageMaker API やランタイムと直接
 - [AWS PrivateLink](https://aws.amazon.com/jp/privatelink/)を使用可能なVPCエンドポイントをサポートしている[サービス一覧](https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-endpoints.html)にSageMakerのノートブックインスタンスとランタイムが入っている
 - 
